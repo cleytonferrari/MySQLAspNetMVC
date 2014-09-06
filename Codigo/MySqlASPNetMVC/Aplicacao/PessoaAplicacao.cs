@@ -18,7 +18,7 @@ namespace MySqlASPNetMVC.Aplicacao
         public List<Pessoa> ListarTodos()
         {
             var pessoas = new List<Pessoa>();
-            const string strQuery = "Select Id, Nome from Pessoa";
+            const string strQuery = "SELECT Id, Nome FROM Pessoa";
             
             var rows = contexto.ExecutaComandoComRetorno(strQuery, null);
             foreach (var row in rows)
@@ -37,7 +37,7 @@ namespace MySqlASPNetMVC.Aplicacao
 
         private int Inserir(Pessoa pessoa)
         {
-            const string commandText = " INSERT INTO PESSOA (Nome) VALUES (@Nome) ";
+            const string commandText = " INSERT INTO Pessoa (Nome) VALUES (@Nome) ";
 
             var parameters = new Dictionary<string, object>
             {
@@ -70,11 +70,9 @@ namespace MySqlASPNetMVC.Aplicacao
                 Inserir(pessoa);
         }
 
-        
-
         public int Excluir(int id)
         {
-            const string strQuery = "Delete from Pessoa where Id = @Id";
+            const string strQuery = "DELETE FROM Pessoa WHERE Id = @Id";
             var parametros = new Dictionary<string, object>
             {
                 {"Id", id}
@@ -83,12 +81,10 @@ namespace MySqlASPNetMVC.Aplicacao
             return contexto.ExecutaComando(strQuery, parametros);
         }
 
-        
-
         public Pessoa ListarPorId(int id)
         {
             var pessoas = new List<Pessoa>();
-            const string strQuery = "Select Id, Nome from Pessoa WHERE Id = @Id";
+            const string strQuery = "SELECT Id, Nome FROM Pessoa WHERE Id = @Id";
             var parametros = new Dictionary<string, object>
             {
                 {"Id", id}
