@@ -121,6 +121,7 @@
     <Content Include="Views\Home\Editar.cshtml" />
     <Content Include="Views\Home\Detalhe.cshtml" />
     <Content Include="Views\Home\Cadastrar.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
