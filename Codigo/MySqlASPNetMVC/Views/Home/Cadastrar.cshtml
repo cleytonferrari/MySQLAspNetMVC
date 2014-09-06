@@ -1,0 +1,26 @@
+﻿@model MySqlASPNetMVC.Models.Pessoa
+@{
+    ViewBag.Title = "Cadastrar Pessoa";
+}
+
+<div class="page-header">
+    <h1>Pessoa <small>organize o cadastro de pessoas</small></h1>
+</div>
+
+<form method="POST" action="">
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Nova Pessoa</legend>
+        <div class="form-group">
+            <label for="Nome">Nome da Pessoa</label>
+            <input id="Nome" name="Nome" type="text" class="form-control" placeholder="Digite o nome da sala">
+            @Html.ValidationMessageFor(x => x.Nome)
+        </div>
+
+        <hr />
+        <p>
+            <button type="submit" class="btn btn-sm btn-info">Salvar</button>
+            <a href="@Url.Action("Index","Home")">Cancelar</a>
+        </p>
+    </fieldset>
+</form>

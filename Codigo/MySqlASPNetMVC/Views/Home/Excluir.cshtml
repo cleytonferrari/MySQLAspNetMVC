@@ -1,0 +1,27 @@
+﻿@model MySqlASPNetMVC.Models.Pessoa
+@{
+    ViewBag.Title = "Excluir esta Pessoa?";
+}
+
+<div class="page-header">
+    <h1>Pessoa <small>organize o cadastro de pessoas</small></h1>
+    <a href="@Url.Action("Cadastrar","Home")" class="btn btn-sm btn-primary">Nova Pessoa</a>
+</div>
+<div class="alert alert-danger">
+    <strong>Atenção!</strong> Deseja realmente excluir este registro?
+</div>
+<fieldset>
+    <legend>Detalhes da Pessoa</legend>
+    <div class="form-group">
+        <strong>Nome: </strong> @Model.Nome
+    </div>
+</fieldset>
+
+<hr />
+<form method="POST" action="">
+    <input type="hidden" value="@Model.Id" name="Id" id="Id" />
+    <p>
+        <button type="submit" class="btn btn-sm btn-info">Excluir</button>
+        <a href="@Url.Action("Index","Home")">Cancelar</a>
+    </p>
+</form>
