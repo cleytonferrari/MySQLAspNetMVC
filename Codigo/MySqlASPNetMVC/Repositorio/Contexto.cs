@@ -12,15 +12,16 @@ namespace MySqlASPNetMVC.Repositorio
 
         private MySqlConnection conexao;
 
-        public Contexto()
-            : this("KarolBD")
-        {
 
+        private static string GetMySQLDbConnectionString()
+        {
+            return ConfigurationManager.AppSettings.Get("MYSQL_CONNECTION_STRING") ??
+                   ConfigurationManager.ConnectionStrings["KarolBD"].ConnectionString;
         }
 
-        public Contexto(string nomeDaConexaoString)
+        public Contexto()
         {
-            var conexaoString = ConfigurationManager.ConnectionStrings[nomeDaConexaoString].ConnectionString;
+            var conexaoString = GetMySQLDbConnectionString();
             conexao = new MySqlConnection(conexaoString);
         }
 
